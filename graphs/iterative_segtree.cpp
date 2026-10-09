@@ -1,6 +1,6 @@
 /* by: lorewired
 
-Iterative Segment-Tree - Sum in Range and Point Update
+Iterative Segment-Tree - Sum in Range and Point Update - 0-based and inclusive ranges
 
 Time Complexity:
 build - O(n)
