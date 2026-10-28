@@ -48,14 +48,14 @@ int main(int argc, char** argv) {
             R = new wavelet(pivot, to, mid + 1, hi);
         }
 
-        int lte(int l, int r, int k) {
+        int lte(int l, int r, int k) { // less than or equal to k
             if (l > r || lo > k) return 0;
             if (hi <= k) return r - l + 1;
             int lb = pref[l - 1], rb = pref[r];
             return L->lte(lb + 1, rb, k) + R->lte(l - lb, r - rb, k);
         }
 
-        int kth(int l, int r, int k){
+        int kth(int l, int r, int k){ // returns the k-th element
             if (l > r) return 0;
             if (lo == hi) return lo;
             int in_lf = pref[r] - pref[l - 1];
@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
             return R->kth(l - lb, r - rb, k - in_lf);
         }
 
-        int count(int l, int r, int k) {
+        int count(int l, int r, int k) { // returns the number of elements equal to k
             if (l > r or k < lo or k > hi) return 0;
             if (lo == hi) return r - l + 1;
             int lb = pref[l - 1], rb = pref[r], mid = lo + (hi - lo) / 2;
